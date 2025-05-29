@@ -1,29 +1,116 @@
 {
   "expo": {
-    "name": "lol-naejeon-manager",
+    "name": "LoL 내전 매니저",
     "slug": "lol-naejeon-manager",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FF6B35"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.judgg.lolnaejeon",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "프로필 사진 촬영을 위해 카메라 접근이 필요합니다.",
+        "NSPhotoLibraryUsageDescription": "프로필 사진 선택을 위해 사진 라이브러리 접근이 필요합니다.",
+        "NSMicrophoneUsageDescription": "음성 채팅을 위해 마이크 접근이 필요합니다."
+      },
+      "associatedDomains": [
+        "applinks:lol-naejeon.jud.gg"
+      ]
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#FF6B35"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.judgg.lolnaejeon",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "lol-naejeon.jud.gg"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#FF6B35",
+          "sounds": [
+            "./assets/sounds/notification.wav"
+          ]
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "프로필 사진 촬영을 위해 카메라 접근이 필요합니다."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "프로필 사진 선택을 위해 사진 라이브러리 접근이 필요합니다."
+        }
+      ]
+    ],
+    "scheme": "lol-naejeon",
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id-here"
+      },
+      "apiUrl": "https://lol-naejeon-api.jud.gg",
+      "riotApiKey": "RIOT_API_KEY_PLACEHOLDER",
+      "firebaseConfig": {
+        "apiKey": "FIREBASE_API_KEY_PLACEHOLDER",
+        "authDomain": "lol-naejeon.firebaseapp.com",
+        "projectId": "lol-naejeon",
+        "storageBucket": "lol-naejeon.appspot.com",
+        "messagingSenderId": "FIREBASE_SENDER_ID_PLACEHOLDER",
+        "appId": "FIREBASE_APP_ID_PLACEHOLDER"
+      },
+      "paymentConfig": {
+        "kakaopay": {
+          "appKey": "KAKAOPAY_APP_KEY_PLACEHOLDER"
+        },
+        "tosspay": {
+          "clientKey": "TOSSPAY_CLIENT_KEY_PLACEHOLDER"
+        }
+      }
+    },
+    "owner": "jud-gg"
   }
 }
